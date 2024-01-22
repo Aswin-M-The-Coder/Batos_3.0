@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Task</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form section {
+      display: none;
+    }
+    form section.visible {
+      display: block;
+    }
+    label, select, input {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    input[type="text"],
+    select {
+      width: calc(100% - 20px);
+      padding: 8px;
+    }
+    textarea {
+      width: calc(100% - 20px);
+      padding: 8px;
+      height: 120px; /* Adjust the height as needed */
+      resize: vertical; /* Allow vertical resizing */
+    }
+    input[type="submit"] {
+      padding: 8px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Create Task</h1>
+  <form action="/create_task_now" method="post">
+      <label for="username">User Name:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="orderid">Order ID:</label>
+      <input type="text" id="orderid" name="orderid" required>
+
+      <label for="rawMaterialVendor">Raw Material Vendor:</label>
+      <select id="rawMaterialVendor" name="rawMaterialVendor" required>
+        <option value="" disabled selected hidden>Choose Raw Material Vendor</option>
+        <!-- rawMaterialVendor -->
+        <option value="a">Option A</option>
+        <option value="b">Option B</option>
+        <option value="c">Option C</option>
+      </select>
+
+      <label for="rawMaterialDescription">Raw Material Description:</label>
+      <textarea id="rawMaterialDescription" name="rawMaterialDescription" required></textarea>
+
+      <!-- <button type="button" onclick="showNextStep(1)">Next</button> -->
+      <label for="processingVendor">Processing Vendor:</label>
+      <select id="processingVendor" name="processingVendor" required>
+        <option value="" disabled selected hidden>Choose Operational Team</option>
+        <!-- processingVendor -->
+        <option value="a">Option A</option>
+        <option value="b">Option B</option>
+        <option value="c">Option C</option>
+      </select>
+
+      <label for="processingDescription">Processing Description:</label>
+      <textarea id="processingDescription" name="processingDescription" required></textarea>
+
+      <!-- <button type="button" onclick="showNextStep(2)">Next</button> -->
+    <label for="manager">Manager:</label>
+      <select id="manager" name="manager" required>
+        <option value="" disabled selected hidden>Choose Manager</option>
+        <!-- manager -->
+        <option value="a">Option A</option>
+        <option value="b">Option B</option>
+        <option value="c">Option C</option>
+      </select>
+      <label for="managerDescription">Description:</label>
+      <textarea id="managerDescription" name="managerDescription" required></textarea>
+
+      <button type="submit">Create Now</button>
+  </form>
+
+  <script>
+    function showNextStep(step) {
+      const currentSection = document.querySelector(`.step${step}`);
+      currentSection.classList.remove('visible');
+      const nextSection = document.querySelector(`.step${step + 1}`);
+      if (nextSection) {
+        nextSection.classList.add('visible');
+      }
+    }
+  </script>
+</body>
+</html>

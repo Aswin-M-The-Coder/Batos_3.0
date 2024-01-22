@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #authButtons {
+            display: flex;
+            gap: 10px;
+        }
+
+        #authButtons form {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 70px;
+            margin-top: 130px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: calc(33.33% - 20px); /* Three boxes per row */
+            max-width: 300px;
+        }
+
+        section button {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        section button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Batos 3.0</h1>
+    <nav>
+        <div id="authButtons">
+            <form action="/login" method="get">
+                <button type="submit">Login</button>
+            </form>
+            <!-- <form action="/register" method="get">
+                <button type="submit">Register</button>
+            </form> -->
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section id="bookTickets">
+        <h2>Create Task</h2>
+        <form action="/create_task" method="post">
+            <button type="submit">Create Now</button>
+        </form>
+    </section>
+
+    <section id="showEmployees">
+        <h2>Show Employees</h2>
+        <form action="/show_employees" method="get">
+            <button type="submit">Show Now</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Add Employees</h2>
+        <form action="/add_employee" method="get">
+            <button type="submit">Add Employees</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Create New Registration</h2>
+        <form action="/register" method="get">
+            <button type="submit">Register</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Unsolved Issues</h2>
+        <form action="/ticket_unsolved" method="get">
+            <button type="submit">Resolve</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Solved Issues</h2>
+        <form action="/ticket_solved" method="get">
+            <button type="submit">View</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Update Data</h2>
+        <form action="/update_data" method="get">
+            <button type="submit">Update</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Track Products</h2>
+        <form action="/admin_track_data" method="post">
+            <button type="submit">Track</button>
+        </form>
+    </section>
+
+</main>
+<footer>
+    <p>&copy; 2024 All Rights Reserved.</p>
+</footer>
+
+
+<script>
+    window.onload = function() {
+        fetch('/loginStatus') // Endpoint to fetch login status
+            .then(response => response.json())
+            .then(data => {
+                const loginBtn = document.querySelector('form[action="/login"]');
+                const registerBtn = document.querySelector('form[action="/register"]');
+                const logoutBtn = document.querySelector('form[action="/logout"]');
+
+                if (data.isLoggedIn) {
+                    loginBtn.style.display = 'none';
+                    logoutBtn.style.display = 'block';
+                } else {
+                    loginBtn.style.display = 'block';
+                    logoutBtn.style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    };
+</script>
+
+
+</body>
+</html>

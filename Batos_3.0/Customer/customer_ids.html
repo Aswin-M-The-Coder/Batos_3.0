@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List of Items</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .item-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .item-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .item-list li span {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    .item-list li form {
+      margin: 0;
+      margin-right: 5px;
+    }
+
+    .item-list li form button {
+      padding: 8px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .item-list li form button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Hide default button styles */
+    .item-list li form button::-moz-focus-inner,
+    .item-list li form button::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <ul class="item-list">
+    <!-- list of items displayed here -->
+  </ul>
+</body>
+</html>

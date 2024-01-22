@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #authButtons {
+            display: flex;
+            gap: 10px;
+        }
+
+        #authButtons form {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: calc(33.33% - 20px); /* Three boxes per row */
+            max-width: 300px;
+        }
+
+        section button {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        section button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Batos 3.0 Vendor!!</h1>
+    <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</header>
+
+<main>
+    <section id="PendingWork">
+        <h2>Pending Work</h2>
+        <form action="/vendor_show_jobs" method="get">
+            <button type="submit">Show Jobs</button>
+        </form>
+    </section>
+
+    <section id="WorkHistory">
+        <h2>Work History</h2>
+        <form action="/vendor_job_history" method="get">
+            <button type="submit">View All</button>
+        </form>
+    </section>
+    <section id="addEmployees">
+        <h2>Solved Tickets</h2>
+        <form action="/ticket_solved_user" method="get">
+            <button type="submit">View</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 All Rights Reserved.</p>
+</footer>
+
+
+
+
+</body>
+</html>

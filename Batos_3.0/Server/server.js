@@ -508,7 +508,7 @@ Batos
                 
 
               console.log('Task created successfully');
-              res.write('<script>alert("Task created successfully");window.location="/"</script>');
+              res.write('<script>alert("Task created successfully");window.location="/home"</script>');
               res.end();
           });
             });
